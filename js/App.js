@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from './components/Button';
+import Searchbar from './components/Search';
 
 
 export default class App extends Component {
@@ -46,6 +47,7 @@ export default class App extends Component {
       <div className="container app">
         <Button count={this.state.count} update={this.updateBtn.bind(this)} />
         <p style={{marginTop: 2 + 'rem'}}>{this.state.phrase}</p>
+        <Searchbar />
       </div>
     );
   }
