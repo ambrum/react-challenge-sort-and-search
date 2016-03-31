@@ -23,3 +23,17 @@
   font-size: 2rem;
   color: #ccc;
 }
+
+.toolbar{margin: 15px 0;
+  button{margin-right: 10px;}
+}
+
+.user-image{
+  max-width: 60px;
+  max-height: 60px;
+}
+ul{list-style-type: none;border: 1px solid #ccc;
+  li{display: block;border-top: 1px solid #ccc;padding:5px;
+    &:first-child{border-bottom: 1px solid #ccc;border-top:none;font-weight:bold;}
+  }
+}
