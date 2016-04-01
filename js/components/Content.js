@@ -4,15 +4,14 @@ import Table from './UserList';
 
 
 
-class Content extends Component {
-	render(){
-		return(
-			<div className="row users-table">
-			<Sidebar />
-			<Table />
-			</div>
-			);
-		}
-	}
+const Content = ({users, activeUser}) =>{
+	return(
+		<div className="row users-table">
+		<Sidebar user = { activeUser } />
+		<Table userlist = { users } />
+		</div>
+		);
+}
 
-	export default Content;
+
+export default Content;

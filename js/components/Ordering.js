@@ -5,7 +5,7 @@ const Buttons = () => {
 		<div className="row">
 			<div className="col-sm-12">
 				<div className="toolbar">
-					<button className="btn btn-default">
+					<button className="btn btn-default" >
 						<i className="icon fa fa-sort-alpha-asc"></i>
 						<span>Sort by name</span>
 					</button>

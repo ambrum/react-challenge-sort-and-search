@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
 
-class ListItem extends Component{
-	render(){
+const ListItem = ({user, userPickup}) =>{
 		return(			
-			<li className="row" key="">
+			<li className="row" onClick={()=>userPickup(user)}>
 				<div className="col-sm-2">
-					<img src="./images/cat.svg" className="user-image" />
+					<img src={`./images/${user.image}.svg`} className="user-image" />
 				</div>
 				<div className="col-sm-4">
-					<p> </p>
+					<p>{user.name}</p>
 				</div>
 				<div className="col-sm-3">
-					<p> </p>
+					<p>{user.age}</p>
 				</div>
 				<div className="col-sm-3">
-					<p> </p>
+					<p>{user.phone}</p>
 				</div>
-			</li>
-			
+			</li>			
 			)
 		}
-	}
 	export default ListItem;
