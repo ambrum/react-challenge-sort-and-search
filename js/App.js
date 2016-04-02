@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import Button from './components/Button';
 import Searchbar from './components/Search';
@@ -47,12 +48,15 @@ export default class App extends Component {
  }
  render() {
    console.log(this.state);
+   const search = _.debounce(() => {this.search() }, 200);
    return (
     <div className="container app">
 
-    <Searchbar />
-    <Buttons />
-    <Content users = {this.state.UserData}   userPickup = {activeUser => this.setState({ActiveUser}) }/>
+    <Searchbar onSearch = {() => this.setState({UserData})}/>
+    <Buttons 
+    onSorting = { (UserData) => this.setState({ UserData })}
+    userData = {this.state.UserData} />
+    <Content users = {this.state.UserData} userPickup = {ActiveUser => this.setState({ActiveUser})} activeUser = {this.state.ActiveUser} />
     </div>
     );
   }

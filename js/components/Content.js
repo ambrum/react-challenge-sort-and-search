@@ -4,11 +4,11 @@ import Table from './UserList';
 
 
 
-const Content = ({users, activeUser}) =>{
+const Content = ({users, userPickup, activeUser}) =>{
 	return(
 		<div className="row users-table">
-		<Sidebar user = { activeUser } />
-		<Table userlist = { users } />
+		<Sidebar  activeUser = { activeUser } />
+		<Table userlist = { users } userPickup = { userPickup } />
 		</div>
 		);
 }

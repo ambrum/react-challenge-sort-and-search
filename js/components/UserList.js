@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ListItem from './UserListItem';
 
-const Table = ({userlist}) =>{
+const Table = ({userlist, userPickup}) =>{
 	const user = userlist.map((user) => {
-		return <ListItem user = { user } key = {user.id} />		
+		return <ListItem user = { user } key = {user.id} userPickup ={ userPickup } />		
 	});
 		return(
 			<ul className="col-lg-9 col-sm-8">
