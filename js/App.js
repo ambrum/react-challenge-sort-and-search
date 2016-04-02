@@ -11,7 +11,8 @@ export default class App extends Component {
     super(props);
     this.state = { 
       UserData: [],
-      ActiveUser: {}
+      ActiveUser: {},
+      SearchedUser: {}
     };
   };
   loadJSON(path, success, error){
@@ -52,9 +53,9 @@ export default class App extends Component {
    return (
     <div className="container app">
 
-    <Searchbar onSearch = {() => this.setState({UserData})}/>
-    <Buttons 
-    onSorting = { (UserData) => this.setState({ UserData })}
+    <Searchbar onSearch = {(SearchedUser) => this.setState({ SearchedUser })}/>
+    <Buttons a
+    onSorting = { () => this.setState({ UserData })}
     userData = {this.state.UserData} />
     <Content users = {this.state.UserData} userPickup = {ActiveUser => this.setState({ActiveUser})} activeUser = {this.state.ActiveUser} />
     </div>
