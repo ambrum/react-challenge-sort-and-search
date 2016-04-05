@@ -11,7 +11,7 @@ export default class App extends Component {
     super(props);
     this.state = { 
       UserData: [],
-      FilteredData: {},
+      FilteredData: [],
       ActiveUser: {}
     };
   };
@@ -49,16 +49,15 @@ export default class App extends Component {
     );
  }
  render() {
-   console.log(this.state);
-   const search = _.debounce(() => {this.search() }, 200);
+   console.log(this.state, this.state.FilteredData);
    return (
     <div className="container app">
 
-    <Searchbar UserList = {this.state.UserData} onSearch = {(filteredData) => this.setState({filteredData})}/>
+    <Searchbar UserList = {this.state.UserData} onSearch = {FilteredData => this.setState({FilteredData: FilteredData, ActiveUser: FilteredData[0]})}/>
     <Buttons 
     onSorting = { (sortedData, activeUser) => this.setState({ UserData : sortedData, ActiveUser : activeUser })}
     userData = {this.state.UserData} />
-    <Content users = {this.state.UserData} userPickup = {ActiveUser => this.setState({ActiveUser})} activeUser = {this.state.ActiveUser} />
+    <Content users = {this.state.FilteredData}  userPickup = {ActiveUser => this.setState({ActiveUser})} activeUser = { this.state.ActiveUser } />
     </div>
     );
   }
