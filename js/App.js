@@ -41,7 +41,6 @@ export default class App extends Component {
         FilteredData: data,
         ActiveUser : data[0]
       });
-      console.log(data);
     }.bind(this),
     function(xhr) { 
       console.error(xhr);
@@ -49,14 +48,13 @@ export default class App extends Component {
     );
  }
  render() {
-   console.log(this.state, this.state.FilteredData);
    return (
     <div className="container app">
 
     <Searchbar UserList = {this.state.UserData} onSearch = {FilteredData => this.setState({FilteredData: FilteredData, ActiveUser: FilteredData[0]})}/>
     <Buttons 
-    onSorting = { (sortedData, activeUser) => this.setState({ UserData : sortedData, ActiveUser : activeUser })}
-    userData = {this.state.UserData} />
+    onSorting = { (sortedData, activeUser) => this.setState({ FilteredData : sortedData, ActiveUser : activeUser })}
+    userData = {this.state.FilteredData} />
     <Content users = {this.state.FilteredData}  userPickup = {ActiveUser => this.setState({ActiveUser})} activeUser = { this.state.ActiveUser } />
     </div>
     );
